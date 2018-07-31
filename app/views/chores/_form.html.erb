@@ -8,16 +8,12 @@
 	<label>Point Value</label><br>
 	<%= f.text_field :point_value %><br>
 
-	Household: <%= f.text_field :household_name, list: "household_autocomplete" %>
-	<datalist id="household_autocomplete">
-		<% Household.all.each do |household| %>
-			<option value="<%= household.name %>">
-	    <% end %>
-	</datalist><br>
+	<%= f.hidden_field :household_name, :value => current_user.household.name %>
 
-	User: <%= f.text_field :user_name, list: "user_autocomplete" %>
+	<label>User</label><br>
+	<%= f.text_field :user_name, list: "user_autocomplete" %>
 	<datalist id="user_autocomplete">
-		<% User.all.each do |user| %>
+		<% current_user.household.users.all.each do |user| %>
 			<option value="<%= user.name %>">
 	    <% end %>
 	</datalist><br>
