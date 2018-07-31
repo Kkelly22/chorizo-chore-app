@@ -1,0 +1,9 @@
+<h1>All Chores</h1>
+
+<ul>
+	<%= @chores.each do |chore| %>
+		<li><%= chore.name - chore.user.name %></li>
+	<% end %>
+</ul>
+
+<%= link_to "Add a Chore", new_chore_path %>
