@@ -1,11 +1,9 @@
 <h1> Sign In </h1>
 
-<%= @user.errors.full_messages.first if @user.errors.any? %>
-
 
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-  <%= select_tag 'user_name', options_from_collection_for_select(@users, 'id', 'name') %>
-  <input name='email'>
-  <input name='password'>
+  Name: <%= select_tag 'user_name', options_from_collection_for_select(@users, 'id', 'name') %> <br>
+  Email: <input name='email'> <br>
+  Password: <input name='password'> <br> 
   <input type="submit" value='Sign In'>
 <% end %>
