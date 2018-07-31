@@ -1,4 +1,5 @@
 class ChoresController < ApplicationController
+	layout "users"
 
 	def index
 		@chores = Chore.all
