@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
 	def new
 		@users = User.all
+		@user = User.new
 	end
 
 	def create
@@ -10,7 +11,8 @@ class SessionsController < ApplicationController
 			session[:user_id] = @user.id
 			redirect_to user_path(@user)
 		else
-			render :new
+			redirect_to signin_path
+			flash[:error] = "Invalid Login Combo"
 		end
 	end
 
