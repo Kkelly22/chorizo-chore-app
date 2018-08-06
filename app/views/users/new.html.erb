@@ -7,12 +7,5 @@
 	Email: <%= f.text_field :email %> <br>
 	Password: <%= f.text_field :password %> <br>
 
-	Household: <%= f.text_field :household_name, list: "household_autocomplete" %>
-	<datalist id="household_autocomplete">
-		<% Household.all.each do |household| %>
-			<option value="<%= household.name %>">
-	    <% end %>
-	</datalist><br>
-
 	<%= f.submit "Create User" %>
 <% end %>
