@@ -1,0 +1,9 @@
+<%= form_for(@household) do |f| %>
+
+	<label>Description</label><br>
+	<%= f.text_field :name %><br>
+
+	<%= f.hidden_field :household_name, :value => current_user.name %>
+
+	<%= f.submit "Submit Household" %>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>Household Information</h1>
+
+Name: <%= @household.name %> <br>
+Dwellers: 
+<ul>
+	<% @household.users.each do |user| %>
+		<li> <%= user.name %> <li>
+	<% end %>
+</ul>
+
+<%= link_to "Edit Household", edit_household_path(@household) %>
+<%= link_to "Delete Household", household_path(@household), method: :delete %>
