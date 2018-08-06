@@ -1,5 +1,7 @@
 <h1> Sign In </h1>
 
+<%= @user.errors.full_messages.first if @user.errors.any? %>
+
 
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
   Name: <%= select_tag 'user_name', options_from_collection_for_select(@users, 'id', 'name') %> <br>
