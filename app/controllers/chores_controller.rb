@@ -14,7 +14,7 @@ class ChoresController < ApplicationController
 		if @chore
 			redirect_to chore_path(@chore)
 		else
-			render :new
+			redirect_to new_chore_path
 		end
 	end
 
@@ -31,7 +31,7 @@ class ChoresController < ApplicationController
 		if @chore
 			redirect_to chore_path(@chore)
 		else
-			render :edit
+			redirect_to edit_chore_path
 		end
 	end
 

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new
-		render :layout => "sessions"
+		render :layout => "welcome"
 	end
 
 	def create
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 			session[:user_id] = @user.id
 			redirect_to user_path(@user)
 		else
-			render :new
+			render :new, :layout => "welcome"
 		end
 	end
 
@@ -28,7 +28,5 @@ class UsersController < ApplicationController
 	def user_params
 		params.require(:user).permit(:name, :email, :password, :image, :roommate_rating, :points, :household_name)
 	end
-
-
 
 end
