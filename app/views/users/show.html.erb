@@ -1,8 +1,5 @@
 <h1>User Information</h1>
 
-Name: <%= @user.name %> <br>
-Email: <%= @user.email %> <br>
-Household: <%= @user.household.name %> <br>
 Roomate Rating: <%= @user.roommate_rating %> <br>
 Points: <%= @user.points %> <br>
 
@@ -21,7 +18,7 @@ Points: <%= @user.points %> <br>
 			<td><%= chore.description %></td>
 			<td><%= chore.due_date %></td>
 			<td><%= chore.point_value %></td>
-			<td><%= chore.household.name %></td>
+			<td><%= link_to chore.household.name, household_path(chore.household) %></td>
 		</tr>
 	<% end %>
 </table>
