@@ -14,19 +14,38 @@
  *= require_self
  */
 
- table, th, td {
-    border: 1px solid black;
+
+/* Formatting Fonts and Sizes */
+* {
+	font-family: 'Lato', sans-serif;
 }
 
-
-h {
-	font-family: 'Libre Baskerville', serif;
+.navbar-brand {
+	font-family: 'Satisfy', serif;
+	font-size: 3em;
 }
 
+h1, h2, h3, h4, h5, h6  { 
+	font-family: 'Lato', sans-serif;
+}
 
 .home_header { 
+	font-family: 'Satisfy', sans-serif;
 	text-align: center; 
-	font-family: 'Merriweather', serif;
+}
+
+/* Formatting Forms */
+label{
+  width: 4em;
+  float: left;
+  text-align: right;
+  margin-right: 0.5em;
+  display: block
+}
+
+/* Formatting Tables */
+ table, th, td {
+    border: 1px solid black;
 }
 
 

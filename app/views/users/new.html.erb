@@ -1,10 +1,11 @@
-<h1> Create a new user </h1>
-
 <%= @user.errors.full_messages.first if @user.errors.any? %>
 
 <%= form_for(@user) do |f| %>
+	<label>Name:</label>
 	Name: <%= f.text_field :name %> <br>
+	<label>Email:</label>
 	Email: <%= f.text_field :email %> <br>
+	<label>Password:</label>
 	Password: <%= f.text_field :password %> <br>
 
 	<%= f.submit "Create User" %>
