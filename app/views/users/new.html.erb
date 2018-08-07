@@ -2,11 +2,11 @@
 
 <%= form_for(@user) do |f| %>
 	<label>Name:</label>
-	Name: <%= f.text_field :name %> <br>
+	<%= f.text_field :name %> <br>
 	<label>Email:</label>
-	Email: <%= f.text_field :email %> <br>
+	<%= f.text_field :email %> <br>
 	<label>Password:</label>
-	Password: <%= f.text_field :password %> <br>
+	<%= f.text_field :password %> <br>
 
 	<%= f.submit "Create User" %>
 <% end %>

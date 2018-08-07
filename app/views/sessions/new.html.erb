@@ -2,8 +2,11 @@
 
 
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-  Name: <%= select_tag 'user_name', options_from_collection_for_select(@users, 'id', 'name') %> <br>
-  Email: <input name='email'> <br>
-  Password: <input name='password'> <br> 
+  <label>Name:</label> 
+  <%= select_tag 'user_name', options_from_collection_for_select(@users, 'id', 'name') %> <br>
+  <label>Email:</label> 
+  <input name='email'> <br>
+  <label>Password:</label> 
+  <input name='password'> <br> 
   <input type="submit" value='Sign In'>
 <% end %>
