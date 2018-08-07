@@ -37,15 +37,16 @@
             <a class="nav-link" href="/logout">Sign Out</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/users/<%=current_user.id%>">My Chores</a>
+            <a class="nav-link" href="/users/<%=current_user.id%>/chores">My Chores</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/households/<%=current_user.household_id%>">My Household</a>
+            <a class="nav-link" href="/users/<%=current_user.id%>/households">My Households</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="/chores/new">Add a Chore</a>
+              <a class="dropdown-item" href="/households/new">Add a Household</a>
               <a class="dropdown-item" href="/">Redeem a Prize</a>
             </div>
           </li>
