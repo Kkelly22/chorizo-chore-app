@@ -1,0 +1,9 @@
+<h1>All Households</h1>
+
+<ul>
+	<% @households.each do |household| %>
+		<li><%= link_to household.name, household_path(household)  %></li>
+	<% end %>
+</ul>
+
+<%= link_to "Add a Household", new_household_path %>
