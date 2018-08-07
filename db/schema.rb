@@ -10,31 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_31_181914) do
+ActiveRecord::Schema.define(version: 2018_08_07_215323) do
 
   create_table "chores", force: :cascade do |t|
     t.string "description"
     t.string "due_date"
     t.integer "point_value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "household_id"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "completions", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "chore_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "households", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "chore_id"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
+  end
+
+  create_table "households_users", force: :cascade do |t|
+    t.integer "household_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,7 +48,6 @@ ActiveRecord::Schema.define(version: 2018_07_31_181914) do
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "household_id"
   end
 
 end
