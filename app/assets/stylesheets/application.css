@@ -36,11 +36,9 @@ h1, h2, h3, h4, h5, h6  {
 
 /* Formatting Forms */
 label{
-  width: 4em;
-  float: left;
-  text-align: right;
-  margin-right: 0.5em;
-  display: block
+	width: 105px;
+	display: inline-block;
+	text-align: right;
 }
 
 /* Formatting Tables */
