@@ -2,8 +2,9 @@
 
 <ul>
 	<% @chores.each do |chore| %>
-		<li><%= chore.name - chore.user.name %></li>
+		<li><%= link_to chore.description, chore_path(chore)  %></li>
 	<% end %>
 </ul>
 
 <%= link_to "Add a Chore", new_chore_path %>
+
