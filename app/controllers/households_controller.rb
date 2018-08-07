@@ -2,7 +2,11 @@ class HouseholdsController < ApplicationController
 	layout "users"
 
 	def index
-		@households = Household.all
+		if params[:user_id]
+      		@households = User.find(params[:user_id]).households
+    	else
+      		@households = Household.all
+    	end
 	end
 
 	def new
@@ -12,6 +16,7 @@ class HouseholdsController < ApplicationController
 	def create
 		@household = Household.create(household_params)
 		if @household
+			@household.users << current_user
 			redirect_to household_path(@household)
 		else
 			redirect_to new_household_path
@@ -44,7 +49,7 @@ class HouseholdsController < ApplicationController
 	private
 
 	def household_params
-		params.require(:household).permit(:name, :user_name)
+		params.require(:household).permit(:name)
 	end
 
 end
