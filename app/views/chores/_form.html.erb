@@ -1,20 +1,28 @@
 
 <%= form_for(@chore) do |f| %>
 
-	<label>Description</label><br>
+	<label>Description</label>
 	<%= f.text_field :description %><br>
-	<label>Due Date</label><br>
+	<label>Due Date</label>
 	<%= f.text_field :due_date %><br>
-	<label>Point Value</label><br>
+	<label>Point Value</label>
 	<%= f.text_field :point_value %><br>
 
-	<%= f.hidden_field :household_name, :value => current_user.household.name %>
+	<label>Household</label>
+	<%= f.text_field :household_name, list: "user_autocomplete" %>
+	<datalist id="user_autocomplete">
+		<% current_user.households.all.each do |household| %>
+			<option value="<%= household.name %>">
+	    <% end %>
+	</datalist><br>
 
-	<label>User</label><br>
+	<label>User</label>
 	<%= f.text_field :user_name, list: "user_autocomplete" %>
 	<datalist id="user_autocomplete">
-		<% current_user.household.users.all.each do |user| %>
-			<option value="<%= user.name %>">
+		<% current_user.households.all.each do |household| %>
+			<% household.users.each do |user| %>
+				<option value="<%= user.name %>">
+	    	<% end %>
 	    <% end %>
 	</datalist><br>
 
