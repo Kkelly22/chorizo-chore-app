@@ -1,6 +1,6 @@
 class Chore < ApplicationRecord
-	belongs_to :household
 	belongs_to :user
+  belongs_to :household
 	has_many :completions
 
   def household_name=(name)

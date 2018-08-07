@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-	belongs_to :household
+	has_and_belongs_to_many :households
 	has_many :chores
-	has_many :completions
+	has_many :completions, through: :chores
 
 	has_secure_password
 	
