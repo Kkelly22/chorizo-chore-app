@@ -6,8 +6,15 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   resources :chores
-  resources :households
-  resources :users
+
+  resources :households do
+  	resources :users, only: [:show, :index]
+  end
+
+  resources :users do
+  	resources :chores, only: [:show, :index]
+  	resources :households, only: [:show, :index]
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
