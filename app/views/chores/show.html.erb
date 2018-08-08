@@ -1,10 +1,10 @@
-<h1>Chore Information</h1>
+<h4>About this Chore</h4>
 
-Description: <%= @chore.description %> <br>
-Due Date: <%= @chore.due_date %> <br>
-Point Value: <%= @chore.point_value %> <br>
-Household: <%= @chore.household.name %> <br>
-Dweller Responsible: <%= @chore.user.name %> <br>
+<label>Description:</label> <%= @chore.description %> <br>
+<label>Due Date:</label> <%= @chore.due_date %> <br>
+<label>Point Value:</label> <%= @chore.point_value %> <br>
+<label>Household:</label> <%= @chore.household.name %> <br>
+<label>Dweller Responsible:</label> <%= @chore.user.name %> <br>
 
 <%= link_to "Edit Chore", edit_chore_path(@chore) %>
 <%= link_to "Delete Chore", chore_path(@chore), method: :delete %>
