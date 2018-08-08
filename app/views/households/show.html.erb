@@ -1,12 +1,16 @@
+<h4>About this Household</h4>
+
 Name: <%= @household.name %> <br>
 
-Dwellers: 
+<br>
+Dwellers:
 <ul>
 	<% @household.users.each do |user| %>
 		<li> <%= user.name %> </li>
 	<% end %>
 </ul>
 
+<br>
 Chores: 
 <ul>
 	<% @household.chores.each do |chore| %>
@@ -18,7 +22,9 @@ Chores:
 <%= link_to "Delete Household", household_path(@household), method: :delete %>
 
 
-<%= form_tag join_path do %>
-  <%= hidden_field_tag "household_id", @household.id %>
-  <%= button_tag "Join Household" %>
-<% end %>
+<% if !current_user.households.include?(@household) %>
+	<%= form_tag join_path do %>
+  		<%= hidden_field_tag "household_id", @household.id %>
+  		<%= button_tag "Join Household" %>
+	<% end %>
+<%end%>
