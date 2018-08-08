@@ -6,8 +6,8 @@ class User < ApplicationRecord
 	has_secure_password
 	
 	validates :name, 
-          :presence => {:message => "Name can't be blank." },
-          :uniqueness => {:message => "Title already exists."}
+          :presence => {:message => "Username can't be blank." },
+          :uniqueness => {:message => "Username already exists."}
 
     validates :email, 
           :presence => {:message => "Email can't be blank." },
