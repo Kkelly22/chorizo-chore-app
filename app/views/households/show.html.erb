@@ -1,8 +1,16 @@
 Name: <%= @household.name %> <br>
+
 Dwellers: 
 <ul>
 	<% @household.users.each do |user| %>
 		<li> <%= user.name %> </li>
+	<% end %>
+</ul>
+
+Chores: 
+<ul>
+	<% @household.chores.each do |chore| %>
+		<li> <%= chore.description %> </li>
 	<% end %>
 </ul>
 
