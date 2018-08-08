@@ -37,7 +37,8 @@ class ChoresController < ApplicationController
 	end
 
 	def update
-		@chore = Chore.update(chore_params)
+		@chore = Chore.find_by(id: params[:id])
+		@chore.update(chore_params)
 		if @chore.household == nil
 			redirect_to new_chore_path
 			flash[:error] = "Please Create Household First"
