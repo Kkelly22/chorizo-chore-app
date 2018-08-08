@@ -41,6 +41,12 @@ class HouseholdsController < ApplicationController
 		end
 	end
 
+	def join
+		@household = Household.find_by(id: params[:household_id])
+		current_user.households << @household
+		redirect_to household_path(@household)
+	end
+
 	def destroy
 		@household = Household.find_by(id: params[:id])
 		@household.destroy

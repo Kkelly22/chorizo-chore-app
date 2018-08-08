@@ -16,3 +16,9 @@ Chores:
 
 <%= link_to "Edit Household", edit_household_path(@household) %>
 <%= link_to "Delete Household", household_path(@household), method: :delete %>
+
+
+<%= form_tag join_path do %>
+  <%= hidden_field_tag "household_id", @household.id %>
+  <%= button_tag "Join Household" %>
+<% end %>
