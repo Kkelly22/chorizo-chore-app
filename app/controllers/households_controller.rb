@@ -4,8 +4,10 @@ class HouseholdsController < ApplicationController
 	def index
 		if params[:user_id]
       		@households = User.find(params[:user_id]).households
+      		@household_index_header = "Your Dwellings"
     	else
       		@households = Household.all
+      		@household_index_header = "All Dwellings"
     	end
 	end
 
