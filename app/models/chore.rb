@@ -4,7 +4,7 @@ class Chore < ApplicationRecord
 	has_many :completions
 
   def household_name=(name)
-    self.household = Household.find_or_create_by(name: name)
+    self.household = Household.find_by(name: name)
   end
 
   def household_name
@@ -12,7 +12,7 @@ class Chore < ApplicationRecord
   end
 
   def user_name=(name)
-    self.user = User.find_or_create_by(name: name)
+    self.user = User.find_by(name: name)
   end
 
   def user_name

@@ -15,7 +15,13 @@ class ChoresController < ApplicationController
 
 	def create
 		@chore = Chore.create(chore_params)
-		if @chore
+		if @chore.household == nil
+			redirect_to new_chore_path
+			flash[:error] = "Please Create Household First"
+		elsif @chore.user == nil
+			redirect_to new_chore_path
+			flash[:error] = "User Does Not Exist for this Household"
+		elsif @chore
 			redirect_to chore_path(@chore)
 		else
 			redirect_to new_chore_path
@@ -32,7 +38,13 @@ class ChoresController < ApplicationController
 
 	def update
 		@chore = Chore.update(chore_params)
-		if @chore
+		if @chore.household == nil
+			redirect_to new_chore_path
+			flash[:error] = "Please Create Household First"
+		elsif @chore.user == nil
+			redirect_to new_chore_path
+			flash[:error] = "User Does Not Exist for this Household"
+		elsif @chore
 			redirect_to chore_path(@chore)
 		else
 			redirect_to edit_chore_path
