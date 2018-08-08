@@ -2,7 +2,7 @@
 
 
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-  <label>Name:</label> 
+  <label>Username:</label> 
   <%= select_tag 'user_name', options_from_collection_for_select(@users, 'id', 'name') %> <br>
   <label>Email:</label> 
   <input name='email'> <br>

@@ -4,7 +4,7 @@ Description: <%= @chore.description %> <br>
 Due Date: <%= @chore.due_date %> <br>
 Point Value: <%= @chore.point_value %> <br>
 Household: <%= @chore.household.name %> <br>
-User Responsible: <%= @chore.user.name %> <br>
+Dweller Responsible: <%= @chore.user.name %> <br>
 
 <%= link_to "Edit Chore", edit_chore_path(@chore) %>
 <%= link_to "Delete Chore", chore_path(@chore), method: :delete %>
