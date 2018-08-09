@@ -1,24 +1,26 @@
-<label>Roomate Rating:</label> <%= @user.roommate_rating %> <br>
-<label>Points:</label> <%= @user.points %> <br>
+<div class="display_info">
+	<label>Roomate Rating:</label> <%= @user.roommate_rating %> <br>
+	<label>Points:</label> <%= @user.points_earned %> <br>
 
-<br>
-<h4>Your Upcoming Chores</h4><br>
-<table style="width:50%">
-	<tr>
-		<th>Description</th>
-		<th>Due Date</th>
-		<th>Point Value</th>
-		<th>Household</th>
-	</tr>
-
-	<% @user.chores.each do |chore| %>
+	<br>
+	<h4>Your Upcoming Chores</h4><br>
+	<table style="width:50%">
 		<tr>
-			<td><%= chore.description %></td>
-			<td><%= chore.due_date %></td>
-			<td><%= chore.point_value %></td>
-			<td><%= link_to chore.household.name, household_path(chore.household) %></td>
+			<th>Description</th>
+			<th>Due Date</th>
+			<th>Point Value</th>
+			<th>Household</th>
 		</tr>
-	<% end %>
-</table>
+
+		<% @user.chores.each do |chore| %>
+			<tr>
+				<td><%= chore.description %></td>
+				<td><%= chore.due_date %></td>
+				<td><%= chore.point_value %></td>
+				<td><%= link_to chore.household.name, household_path(chore.household) %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
 
 
