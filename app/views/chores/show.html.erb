@@ -12,7 +12,6 @@
 	<% end %>
 </div>
 
-<footer>
-	<%= link_to "Edit Chore", edit_chore_path(@chore) %>
-	<%= link_to "Delete Chore", chore_path(@chore), method: :delete %>
+<footer class="bg-dark">
+	<%= link_to "Edit Chore", edit_chore_path(@chore) %> | <%= link_to "Delete Chore", chore_path(@chore), method: :delete %>
 </footer>

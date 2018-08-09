@@ -16,7 +16,7 @@
 	Chores: 
 	<ul>
 		<% @household.chores.each do |chore| %>
-			<li> <%= chore.description %> </li>
+			<li> <%= link_to chore.description, chore_path(chore) %> </li>
 		<% end %>
 	</ul>
 	
@@ -29,7 +29,6 @@
 	<%end%>
 </div>
 
-<footer>
-	<%= link_to "Edit Household", edit_household_path(@household) %>
-	<%= link_to "Delete Household", household_path(@household), method: :delete %>
+<footer class="bg-dark">
+	<%= link_to "Edit Household", edit_household_path(@household) %> | <%= link_to "Delete Household", household_path(@household), method: :delete %>
 </footer>
