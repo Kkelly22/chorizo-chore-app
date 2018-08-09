@@ -15,7 +15,7 @@
  */
 
 
-/* Formatting Fonts and Sizes */
+/* Formatting Fonts, Sizes, Colors */
 * {
 	font-family: 'Lato', sans-serif;
 }
@@ -34,6 +34,9 @@ h1, h2, h3, h4, h5, h6  {
 	text-align: center; 
 }
 
+
+
+
 /* Formatting Forms */
 label{
 	width: 125px;
@@ -41,10 +44,46 @@ label{
 	text-align: right;
 }
 
+.form {
+	float: center;
+	margin-top: 10px;
+	margin-left: auto;
+    margin-right: auto;
+	width: 50%;
+	background: grey;
+}
+
+
+
+
 /* Formatting Tables */
  table, th, td {
     border: 1px solid black;
 }
+
+
+
+
+/* Formatting Display Info */
+.display_info {
+	float: center;
+	margin-top: 10px;
+	margin-left: auto;
+    margin-right: auto;
+	width: 50%;
+	background: lightblue;
+}
+
+footer {
+	position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: blue;
+    text-align: center;
+}
+
 
 
 
