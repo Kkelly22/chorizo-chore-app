@@ -1,5 +1,7 @@
 class Household < ApplicationRecord
-	has_and_belongs_to_many :users
+	has_many :household_users
+  	has_many :users, through: :household_users
+
 	has_many :chores
 
 end
