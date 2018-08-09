@@ -1,9 +1,13 @@
-<h4> <%=@household_index_header%> </h4>
+<div class="display_info">
+	<h4> <%=@household_index_header%> </h4>
 
-<ul>
-	<% @households.each do |household| %>
-		<li><%= link_to household.name, household_path(household)  %></li>
-	<% end %>
-</ul>
+	<ul>
+		<% @households.each do |household| %>
+			<li><%= link_to household.name, household_path(household)  %></li>
+		<% end %>
+	</ul>
+</div>
 
-<%= link_to "Add a Household", new_household_path %>
+<footer>
+	<%= link_to "Add a Household", new_household_path %>
+</footer>
