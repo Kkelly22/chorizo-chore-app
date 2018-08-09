@@ -1,12 +1,16 @@
 <%= @user.errors.full_messages.first if @user.errors.any? %>
 
 
-<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-  <label>Username:</label> 
-  <%= select_tag 'user_name', options_from_collection_for_select(@users, 'id', 'name') %> <br>
-  <label>Email:</label> 
-  <input name='email'> <br>
-  <label>Password:</label> 
-  <input name='password'> <br> 
-  <input type="submit" value='Sign In'>
-<% end %>
+<div class="form">
+	<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+	  <label>Username:</label> 
+	  <%= select_tag 'user_name', options_from_collection_for_select(@users, 'id', 'name') %> <br>
+	  <label>Email:</label> 
+	  <input name='email'> <br>
+	  <label>Password:</label> 
+	  <input name='password'> <br> 
+	  
+	  <br>
+	  <input type="submit" value='Sign In'>
+	<% end %>
+</div>

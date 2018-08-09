@@ -1,12 +1,15 @@
 <%= @user.errors.full_messages.first if @user.errors.any? %>
 
-<%= form_for(@user) do |f| %>
-	<label>Username:</label>
-	<%= f.text_field :name %> <br>
-	<label>Email:</label>
-	<%= f.text_field :email %> <br>
-	<label>Password:</label>
-	<%= f.text_field :password %> <br>
-
-	<%= f.submit "Create User" %>
-<% end %>
+<div class="form">
+	<%= form_for(@user) do |f| %>
+		<label>Username:</label>
+		<%= f.text_field :name %> <br>
+		<label>Email:</label>
+		<%= f.text_field :email %> <br>
+		<label>Password:</label>
+		<%= f.text_field :password %> <br>
+		
+		<br>
+		<%= f.submit "Create User" %>
+	<% end %>
+</div>
