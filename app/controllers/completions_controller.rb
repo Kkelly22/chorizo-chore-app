@@ -28,7 +28,7 @@ class CompletionsController < ApplicationController
 	private
 
 	def completion_params
-		params.require(:completion).permit(:chore_id)
+		params.require(:completion).permit(:chore_name, :user_name, :due_date)
 	end
 
 end

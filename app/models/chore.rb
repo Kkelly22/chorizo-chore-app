@@ -11,12 +11,4 @@ class Chore < ApplicationRecord
     self.household ? self.household.name : nil
   end
 
-  def user_name=(name)
-    self.user = User.find_by(name: name)
-  end
-
-  def user_name
-    self.user ? self.user.name : nil
-  end
-
 end
