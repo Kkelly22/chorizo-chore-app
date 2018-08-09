@@ -6,7 +6,7 @@
 	<label>Household:</label> <%= @chore.household.name %> <br>
 
 	<br>
-	<%= form_tag completion_path do %>
+	<%= form_tag new_completion_path, {:method => :get} do %>
 	  	<%= hidden_field_tag "chore_id", @chore.id %>
 	  	<%= button_tag "Assign Chore" %>
 	<% end %>

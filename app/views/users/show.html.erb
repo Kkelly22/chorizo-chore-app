@@ -4,7 +4,7 @@
 
 	<br>
 	<h4>Your Upcoming Chores</h4><br>
-	<table style="width:50%">
+	<table>
 		<tr>
 			<th>Description</th>
 			<th>Due Date</th>
@@ -12,12 +12,12 @@
 			<th>Household</th>
 		</tr>
 
-		<% @user.chores.each do |chore| %>
+		<% @user.completions.each do |completion| %>
 			<tr>
-				<td><%= chore.description %></td>
-				<td><%= chore.due_date %></td>
-				<td><%= chore.point_value %></td>
-				<td><%= link_to chore.household.name, household_path(chore.household) %></td>
+				<td><%= completion.chore.description %></td>
+				<td><%= completion.due_date %></td>
+				<td><%= completion.chore.point_value %></td>
+				<td><%= link_to completion.chore.household.name, household_path(completion.chore.household) %></td>
 			</tr>
 		<% end %>
 	</table>
