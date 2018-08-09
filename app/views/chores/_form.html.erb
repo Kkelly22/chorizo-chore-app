@@ -1,31 +1,21 @@
+<div class="form">
+	<%= form_for(@chore) do |f| %>
 
-<%= form_for(@chore) do |f| %>
+		<label>Description</label>
+		<%= f.text_field :description %><br>
+	
+		<label>Point Value</label>
+		<%= f.text_field :point_value %><br>
 
-	<label>Description</label>
-	<%= f.text_field :description %><br>
-	<label>Due Date</label>
-	<%= f.text_field :due_date %><br>
-	<label>Point Value</label>
-	<%= f.text_field :point_value %><br>
+		<label>Household</label>
+		<%= f.text_field :household_name, list: "user_autocomplete" %>
+		<datalist id="user_autocomplete">
+			<% current_user.households.all.each do |household| %>
+				<option value="<%= household.name %>">
+		    <% end %>
+		</datalist><br>
 
-	<label>Household</label>
-	<%= f.text_field :household_name, list: "user_autocomplete" %>
-	<datalist id="user_autocomplete">
-		<% current_user.households.all.each do |household| %>
-			<option value="<%= household.name %>">
-	    <% end %>
-	</datalist><br>
-
-	<label>Username</label>
-	<%= f.text_field :user_name, list: "user_autocomplete" %>
-	<datalist id="user_autocomplete">
-		<% current_user.households.all.each do |household| %>
-			<% household.users.each do |user| %>
-				<option value="<%= user.name %>">
-	    	<% end %>
-	    <% end %>
-	</datalist><br>
-
-
-	<%= f.submit "Submit Chore" %>
-<% end %>
+		<br>
+		<%= f.submit "Submit Chore" %>
+	<% end %>
+</div>
