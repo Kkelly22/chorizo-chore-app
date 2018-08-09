@@ -20,12 +20,6 @@ class ChoresController < ApplicationController
 		if @chore.household == nil
 			redirect_to new_chore_path
 			flash[:error] = "Please Create Household First"
-		elsif @chore.user == nil
-			redirect_to new_chore_path
-			flash[:error] = "Please Create User First"
-		elsif @chore.household.users.include?(@chore.user) == false
-			redirect_to new_chore_path
-			flash[:error] = "User Does Not Exist for this Household"
 		elsif @chore
 			redirect_to chore_path(@chore)
 		else
@@ -47,9 +41,6 @@ class ChoresController < ApplicationController
 		if @chore.household == nil
 			redirect_to new_chore_path
 			flash[:error] = "Please Create Household First"
-		elsif @chore.user == nil
-			redirect_to new_chore_path
-			flash[:error] = "User Does Not Exist for this Household"
 		elsif @chore
 			redirect_to chore_path(@chore)
 		else
