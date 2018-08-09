@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post '/join', to: 'households#join'
 
   resources :chores
+  resources :completions
 
   resources :households do
   	resources :users, only: [:show, :index]
