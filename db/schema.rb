@@ -14,29 +14,31 @@ ActiveRecord::Schema.define(version: 2018_08_07_215323) do
 
   create_table "chores", force: :cascade do |t|
     t.string "description"
-    t.string "due_date"
     t.integer "point_value"
     t.integer "household_id"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "completions", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "chore_id"
+    t.string "due_date"
+    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "household_users", force: :cascade do |t|
+    t.integer "household_id"
+    t.integer "user_id"
   end
 
   create_table "households", force: :cascade do |t|
     t.string "name"
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "households_users", force: :cascade do |t|
-    t.integer "household_id"
-    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,8 +46,8 @@ ActiveRecord::Schema.define(version: 2018_08_07_215323) do
     t.string "email"
     t.string "password_digest"
     t.string "image"
-    t.integer "roommate_rating"
-    t.integer "points"
+    t.integer "roommate_rating", default: 0
+    t.integer "points_earned", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

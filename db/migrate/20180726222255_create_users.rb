@@ -5,8 +5,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     	t.string :email
     	t.string :password_digest
     	t.string :image
-    	t.integer :roommate_rating
-    	t.integer :points
+    	t.integer :roommate_rating, :default => 0
+    	t.integer :points_earned, :default => 0
 
       t.timestamps
     end
