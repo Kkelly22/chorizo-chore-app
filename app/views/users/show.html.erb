@@ -1,5 +1,5 @@
 <div class="display_info">
-	<label>Roomate Rating:</label> <%= @user.roommate_rating %> <br>
+	<label>Roomate Rating:</label> <%= @user.rating %> <br>
 	<label>Points:</label> <%= @user.points_earned %> <br>
 
 	<br>
@@ -13,12 +13,14 @@
 		</tr>
 
 		<% @user.completions.each do |completion| %>
-			<tr>
-				<td><%= completion.chore.description %></td>
-				<td><%= completion.due_date %></td>
-				<td><%= completion.chore.point_value %></td>
-				<td><%= link_to completion.chore.household.name, household_path(completion.chore.household) %></td>
-			</tr>
+			<% if completion.completed == false %>
+				<tr>
+					<td><%= completion.chore.description %></td>
+					<td><%= completion.due_date %></td>
+					<td><%= completion.chore.point_value %></td>
+					<td><%= link_to completion.chore.household.name, household_path(completion.chore.household) %></td>
+				</tr>
+			<% end %>
 		<% end %>
 	</table>
 </div>
