@@ -9,5 +9,13 @@ class Completion < ApplicationRecord
     def user_name
       self.user ? self.user.name : nil
     end
+
+    def status
+    	if self.completed == true
+    		return "Completed"
+    	else
+    		return "Not Completed"
+    	end
+    end
 	
 end
