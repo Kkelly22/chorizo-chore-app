@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/signin' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   post '/join', to: 'households#join'
+  post '/complete', to: 'completions#complete'
 
   resources :chores
   resources :completions
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-  	resources :chores, only: [:show, :index]
+  	resources :completions, only: [:show, :index]
   	resources :households, only: [:show, :index]
   end
 
