@@ -11,12 +11,12 @@ class User < ApplicationRecord
           :presence => {:message => "Username can't be blank." },
           :uniqueness => {:message => "Username already exists."}
 
-    validates :email, 
+  validates :email, 
           :presence => {:message => "Email can't be blank." },
           :uniqueness => {:message => "Email already exists."}
 
-    validates :password, 
-          :presence => {:message => "Password can't be blank." }
+ #   validates :password, 
+  #        :presence => {:message => "Password can't be blank." }
 
     def household_name=(name)
       self.household = Household.find_or_create_by(name: name)
@@ -24,6 +24,20 @@ class User < ApplicationRecord
 
     def household_name
       self.household ? self.household.name : nil
+    end
+
+    def rating
+      if self.points_earned >=50
+        return 5
+      elsif self.points_earned >= 40
+        return 4
+      elsif self.points_earned >= 30
+        return 3
+      elsif self.points_earned >= 20
+        return 2
+      else
+        return 1
+      end
     end
 
 
