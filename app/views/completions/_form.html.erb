@@ -1,0 +1,21 @@
+<div class="form">
+	<%= form_for(@completion) do |f| %>
+		<%= f.hidden_field :chore_id, :value => @chore.id %>
+
+		<label>Assign To:</label>
+		<%= f.text_field :user_name, list: "user_autocomplete" %>
+		<datalist id="user_autocomplete">
+			<% current_user.households.all.each do |household| %>
+				<% household.users.all.each do |user| %>
+					<option value="<%= user.name %>">
+		    	<% end %>
+		    <% end %>
+		</datalist><br>
+
+		<label>Due Date:</label>
+		<%= f.text_field :due_date %><br>
+		
+		<br>
+		<%= f.submit "Assign" %>
+	<% end %>
+</div>
