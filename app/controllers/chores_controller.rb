@@ -2,13 +2,7 @@ class ChoresController < ApplicationController
 	layout "users"
 
 	def index
-		if params[:user_id]
-      		@chores = User.find(params[:user_id]).chores
-      		@chore_index_header = "Your Chores"
-    	else
-      		@chores = Chore.all
-      		@chore_index_header = "All Chores"
-    	end
+      	@chores = Chore.all
 	end
 
 	def new
