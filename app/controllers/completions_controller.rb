@@ -2,11 +2,11 @@ class CompletionsController < ApplicationController
 	layout "users"
 
 	def index
-		@completions = current_user.completions.all
+		@completions = current_user.completions.pending
 	end
 
 	def new
-		@chore = Chore.find_by(params[:chore_id])
+		@chore = Chore.find_by(id: params[:chore_id])
 		@completion = Completion.new
 	end
 

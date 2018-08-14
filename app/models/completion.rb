@@ -17,5 +17,9 @@ class Completion < ApplicationRecord
     		return "Not Completed"
     	end
     end
+
+    def self.pending
+        where(completed: false)
+    end
 	
 end
