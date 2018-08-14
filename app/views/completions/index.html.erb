@@ -1,27 +1,31 @@
 <div class="display_info">
 	<h4> Your Chores </h4>
 
-	<table>
-		<tr>
-			<th>Description</th>
-			<th>Complete By</th>
-			<th>Status</th>
-			<th>Action</th>
-		</tr>
-
-		<% @completions.each do |completion| %>
+	<% if @completions.size > 0 %>
+		<table>
 			<tr>
-				<td><%= completion.chore.description %></td>
-				<td><%= completion.due_date %></td>
-				<td><%= completion.status %></td>
-				<td><%= form_tag complete_path do %>
-				  		<%= hidden_field_tag "completion_id", completion.id %>
-				  		<%= button_tag "Complete Chore" %>
-					<% end %>
-				</td>
+				<th>Description</th>
+				<th>Complete By</th>
+				<th>Status</th>
+				<th>Action</th>
 			</tr>
-		<% end %>
-	</table>
+
+			<% @completions.each do |completion| %>
+				<tr>
+					<td><%= completion.chore.description %></td>
+					<td><%= completion.due_date %></td>
+					<td><%= completion.status %></td>
+					<td><%= form_tag complete_path do %>
+					  		<%= hidden_field_tag "completion_id", completion.id %>
+					  		<%= button_tag "Complete Chore" %>
+						<% end %>
+					</td>
+				</tr>
+			<% end %>
+		</table>
+	<% else %>
+		<p>You Have No Chores to Complete!</p>
+	<% end %>
 </div>
 
 

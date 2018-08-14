@@ -1,11 +1,15 @@
 <div class="display_info">
 	<h4> All Chores </h4>
 
-	<ul>
-		<% @chores.each do |chore| %>
-			<li><%= link_to chore.description, chore_path(chore)  %></li>
-		<% end %>
-	</ul>
+	<% if @chores.size > 0 %>
+		<ul>
+			<% @chores.each do |chore| %>
+				<li><%= link_to chore.description, chore_path(chore)  %></li>
+			<% end %>
+		</ul>
+	<% else %>
+		<p>No Chores Exist.</p>
+	<% end %>
 </div>
 
 <footer class="bg-dark">

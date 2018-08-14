@@ -4,25 +4,31 @@
 
 	<br>
 	<h4>Your Upcoming Chores</h4><br>
-	<table>
-		<tr>
-			<th>Description</th>
-			<th>Due Date</th>
-			<th>Point Value</th>
-			<th>Household</th>
-		</tr>
 
-		<% @user.completions.each do |completion| %>
-			<% if completion.completed == false %>
-				<tr>
-					<td><%= completion.chore.description %></td>
-					<td><%= completion.due_date %></td>
-					<td><%= completion.chore.point_value %></td>
-					<td><%= link_to completion.chore.household.name, household_path(completion.chore.household) %></td>
-				</tr>
+	<% if @user.completions.pending.size > 0 %>
+		<table>
+			<tr>
+				<th>Description</th>
+				<th>Due Date</th>
+				<th>Point Value</th>
+				<th>Household</th>
+			</tr>
+
+			<% @user.completions.each do |completion| %>
+				<% if completion.completed == false %>
+					<tr>
+						<td><%= completion.chore.description %></td>
+						<td><%= completion.due_date %></td>
+						<td><%= completion.chore.point_value %></td>
+						<td><%= link_to completion.chore.household.name, household_path(completion.chore.household) %></td>
+					</tr>
+				<% end %>
 			<% end %>
-		<% end %>
-	</table>
+		</table>
+	<% else %>
+		<p>You Have No Chores to Complete!</p>
+	<% end %>
+
 </div>
 
 
