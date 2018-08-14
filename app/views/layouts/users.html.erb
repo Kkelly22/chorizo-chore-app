@@ -34,21 +34,21 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto"> 
           <li class="nav-item">
-            <a class="nav-link" href="/logout">Sign Out</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="/users/<%=current_user.id%>/completions">My Chores</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/users/<%=current_user.id%>/households">My Households</a>
+            <a class="nav-link" href="/chores">Household Chores</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="/users/<%=current_user.id%>/households">Manage Households</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+            <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="/chores/new">Add a Chore</a>
               <a class="dropdown-item" href="/households/new">Add a Household</a>
               <a class="dropdown-item" href="/households">Join a Household</a>
-              <a class="dropdown-item" href="/">Redeem a Prize</a>
+              <a class="dropdown-item" href="/logout">Sign Out</a>
             </div>
           </li>
         </ul>
