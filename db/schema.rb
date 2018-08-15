@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_07_215323) do
+ActiveRecord::Schema.define(version: 2018_08_15_115938) do
 
   create_table "chores", force: :cascade do |t|
     t.string "description"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2018_08_07_215323) do
     t.integer "points_earned", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "uid"
   end
 
 end

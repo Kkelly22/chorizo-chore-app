@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   post '/join', to: 'households#join'
   post '/complete', to: 'completions#complete'
+  get '/auth/facebook/callback' => 'sessions#create'
 
   resources :chores
   resources :completions

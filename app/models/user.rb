@@ -15,8 +15,6 @@ class User < ApplicationRecord
           :presence => {:message => "Email can't be blank." },
           :uniqueness => {:message => "Email already exists."}
 
- #   validates :password, 
-  #        :presence => {:message => "Password can't be blank." }
 
     def household_name=(name)
       self.household = Household.find_or_create_by(name: name)
@@ -37,6 +35,14 @@ class User < ApplicationRecord
         return 2
       else
         return 1
+      end
+    end
+
+
+    def self.find_or_create_by_omniauth(auth_hash)
+      self.where(:email => auth_hash['info']['email']).first_or_create do |user|
+        user.name = auth_hash['info']['name']
+        user.password = SecureRandom.hex
       end
     end
 
