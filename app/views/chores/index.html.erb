@@ -4,7 +4,7 @@
 	<% if @chores.size > 0 %>
 		<ul>
 			<% @chores.each do |chore| %>
-				<li><%= link_to chore.description, chore_path(chore)  %></li>
+				<li><%= link_to chore.description, chore_path(chore) %> (<%= chore.household.name %>, <%= chore.point_value %> Points) </li>
 			<% end %>
 		</ul>
 	<% else %>
