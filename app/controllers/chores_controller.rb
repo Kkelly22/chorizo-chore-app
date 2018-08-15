@@ -2,12 +2,18 @@ class ChoresController < ApplicationController
 	layout "users"
 
 	def index
-      	@chores = Chore.all
+		@chores = []
+		current_user.households.each do |household|
+			household.chores.each do |chore|
+				@chores << chore
+			end
+		end
+    #  	@chores = Chore.all
 	end
 
 	def new
 		@chore = Chore.new
-	end
+	end 
 
 	def create
 		@chore = Chore.create(chore_params)
