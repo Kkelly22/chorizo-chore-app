@@ -17,11 +17,11 @@ class HouseholdsController < ApplicationController
 
 	def create
 		@household = Household.create(household_params)
-		if @household
+		if @household && @household.valid?
 			@household.users << current_user
 			redirect_to household_path(@household)
 		else
-			redirect_to new_household_path
+			render new_household_path
 		end
 	end
 

@@ -4,4 +4,7 @@ class Household < ApplicationRecord
 
 	has_many :chores
 
+	validates :name, 
+          :presence => {:message => "Household Name can't be blank." }
+
 end

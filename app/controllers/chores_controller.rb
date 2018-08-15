@@ -8,7 +8,6 @@ class ChoresController < ApplicationController
 				@chores << chore
 			end
 		end
-    #  	@chores = Chore.all
 	end
 
 	def new
@@ -20,10 +19,10 @@ class ChoresController < ApplicationController
 		if @chore.household == nil
 			redirect_to new_chore_path
 			flash[:error] = "Please Create Household First"
-		elsif @chore
+		elsif @chore && @chore.valid?
 			redirect_to chore_path(@chore)
 		else
-			redirect_to new_chore_path
+			render new_chore_path
 		end
 	end
 
