@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :users do
   	resources :completions, only: [:show, :index]
-  	resources :households, only: [:show, :index]
+  	resources :households
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
