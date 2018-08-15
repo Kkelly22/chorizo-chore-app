@@ -38,6 +38,21 @@ class User < ApplicationRecord
       end
     end
 
+    def all_household_chores
+      all_chores = []
+      self.households.each do |household|
+        household.chores.each do |chore|
+          all_chores << chore
+        end 
+      end
+      all_chores
+    end
+
+    def update(completion)
+      self.points_earned += completion.chore.point_value
+      self.save
+    end
+
 
     def self.find_or_create_by_omniauth(auth_hash)
       self.where(:email => auth_hash['info']['email']).first_or_create do |user|

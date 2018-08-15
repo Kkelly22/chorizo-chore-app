@@ -23,12 +23,9 @@ class CompletionsController < ApplicationController
 	def complete
 		@completion = Completion.find_by(id:params[:completion_id])
 		if @completion
-			@completion.completed = true
-			@completion.save
-
+			@completion.update
 			@user = @completion.user
-			@user.points_earned += @completion.chore.point_value
-			@user.save
+			@user.update(@completion)
 		end
 		redirect_to root_path
 	end

@@ -2,12 +2,7 @@ class ChoresController < ApplicationController
 	layout "users"
 
 	def index
-		@chores = []
-		current_user.households.each do |household|
-			household.chores.each do |chore|
-				@chores << chore
-			end
-		end
+		@chores = current_user.all_household_chores
 	end
 
 	def new

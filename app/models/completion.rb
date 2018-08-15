@@ -18,6 +18,11 @@ class Completion < ApplicationRecord
     	end
     end
 
+    def update
+        self.completed = true
+        self.save
+    end
+
     def self.pending
         where(completed: false)
     end
