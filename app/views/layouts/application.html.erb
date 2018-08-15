@@ -32,9 +32,11 @@
       </button>
     </nav>
 
-    <% flash.each do |key, value| %>
-      <%= content_tag :div, value, class: "flash #{key}" %>
-    <% end %>
+    <div class="field_with_error_message">
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "flash #{key}" %>
+      <% end %>
+    </div>
 
     <%= yield %>
   </body>

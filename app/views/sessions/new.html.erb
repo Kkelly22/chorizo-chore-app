@@ -1,4 +1,6 @@
-<%= @user.errors.full_messages.first if @user.errors.any? %>
+<div class="field_with_error_message">
+	<%= @user.errors.full_messages.first if @user.errors.any? %>
+</div>
 
 
 <div class="form">
