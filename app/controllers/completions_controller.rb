@@ -12,7 +12,7 @@ class CompletionsController < ApplicationController
 
 	def create
 		@completion = Completion.create(completion_params)
-		if @completion.errors == nil
+		if @completion.errors.empty?
 			redirect_to root_path
 		else
 			redirect_to chore_path(params["completion"][:chore_id])
@@ -33,6 +33,11 @@ class CompletionsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def destroy
+		@completion = Completion.find_by(id: params[:completion_id])
+		@completion.destroy
+		redirect_to root_path
+	end
 
 
 	private

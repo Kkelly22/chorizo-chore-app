@@ -15,9 +15,14 @@
 					<td><%= completion.chore.description %></td>
 					<td><%= completion.due_date %></td>
 					<td><%= completion.status %></td>
-					<td><%= form_tag complete_path do %>
+					<td>
+						<%= form_tag complete_path do %>
 					  		<%= hidden_field_tag "completion_id", completion.id %>
-					  		<%= button_tag "Complete Chore" %>
+					  		<%= button_tag "Complete" %>
+						<% end %>
+						<%= form_tag completion_path(completion.id), method: :delete do %>
+					  		<%= hidden_field_tag "completion_id", completion.id %>
+					  		<%= button_tag "Unassign" %>
 						<% end %>
 					</td>
 				</tr>
