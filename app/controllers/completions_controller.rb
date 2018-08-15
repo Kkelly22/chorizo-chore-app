@@ -12,10 +12,11 @@ class CompletionsController < ApplicationController
 
 	def create
 		@completion = Completion.create(completion_params)
-		if @completion
+		if @completion.errors == nil
 			redirect_to root_path
 		else
-			redirect_to new_completion_path
+			redirect_to chore_path(params["completion"][:chore_id])
+			flash[:error] = "Oops, user does not exist yet."
 		end
 	end
 
