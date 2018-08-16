@@ -24,3 +24,6 @@ Sign up for Choreizo.  Once you have a username/password/email created, you can 
 You can then start building your chore system by first adding a household, and then adding chores under that household.  You can create as many households as you'd like, and add as many chores under each household as needed.  You can then start assigning chores to users, whether it be yourself or another household dweller.  
 
 Any user you assign a chore to must exist in the Choreizo database to be able to receive the chore.  Once another user has joined Choreizo, they can search through 'All Households' and 'Join' the household you've set up.  This will allow them to see all chores listed under each household they belong to, accept/complete the chores, and earn points!
+
+
+This application has been licensed under the MIT open source license.  More detail can be found at https://opensource.org/licenses/MIT.
