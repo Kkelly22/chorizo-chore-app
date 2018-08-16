@@ -11,12 +11,20 @@ class CompletionsController < ApplicationController
 	end
 
 	def create
-		@completion = Completion.create(completion_params)
-		if @completion.errors.empty?
-			redirect_to user_path(@completion.user)
-		else
+		chore = Chore.find_by(id: params['completion'][:chore_id])
+		user = User.find_by(name: params['completion'][:user_name])
+
+		if !user.households.include?(chore.household)
 			redirect_to chore_path(params["completion"][:chore_id])
-			flash[:error] = "Oops, user does not exist yet."
+			flash[:error] = "User must join household first."
+		else
+			@completion = Completion.create(completion_params)
+			if !@completion.errors.empty?
+				redirect_to chore_path(params["completion"][:chore_id])
+				flash[:error] = "Oops, user does not exist yet."
+			else
+				redirect_to user_path(@completion.user)
+			end
 		end
 	end
 
