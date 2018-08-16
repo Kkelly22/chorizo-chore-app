@@ -26,15 +26,15 @@ class User < ApplicationRecord
 
     def rating
       if self.points_earned >=50
-        return 5
+        return "Excellent"
       elsif self.points_earned >= 40
-        return 4
+        return "Strong"
       elsif self.points_earned >= 30
-        return 3
+        return "Mediocre"
       elsif self.points_earned >= 20
-        return 2
+        return "Weak"
       else
-        return 1
+        return "Do More"
       end
     end
 

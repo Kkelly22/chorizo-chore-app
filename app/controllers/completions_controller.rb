@@ -13,7 +13,7 @@ class CompletionsController < ApplicationController
 	def create
 		@completion = Completion.create(completion_params)
 		if @completion.errors.empty?
-			redirect_to root_path
+			redirect_to user_path(@completion.user)
 		else
 			redirect_to chore_path(params["completion"][:chore_id])
 			flash[:error] = "Oops, user does not exist yet."
@@ -27,13 +27,13 @@ class CompletionsController < ApplicationController
 			@user = @completion.user
 			@user.update(@completion)
 		end
-		redirect_to root_path
+		redirect_to user_path(current_user)
 	end
 
 	def destroy
 		@completion = Completion.find_by(id: params[:completion_id])
 		@completion.destroy
-		redirect_to root_path
+		redirect_to user_path(current_user)
 	end
 
 
