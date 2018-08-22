@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post '/complete', to: 'completions#complete'
   get '/auth/facebook/callback' => 'sessions#create'
 
+  get '/pastdue', to: 'completions#pastdue'
+
   resources :chores
   resources :completions
 

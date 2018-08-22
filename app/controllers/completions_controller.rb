@@ -47,6 +47,12 @@ class CompletionsController < ApplicationController
 		redirect_to user_path(current_user)
 	end
 
+	def pastdue
+		@past_dues = Completion.past_due
+		render :pastdue
+	end
+
+
 
 	private
 

@@ -26,5 +26,9 @@ class Completion < ApplicationRecord
     def self.pending
         where(completed: false)
     end
+
+    def self.past_due
+        where(completed: false)
+    end
 	
 end
