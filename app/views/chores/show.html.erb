@@ -15,3 +15,20 @@
 <footer class="bg-dark">
 	<%= link_to "Edit Chore", edit_chore_path(@chore) %> | <%= link_to "Delete Chore", chore_path(@chore), method: :delete %>
 </footer>
+
+
+<script id="chore-template" type="text/x-handlebars-template">
+	<div class="display_info">
+		<h4>About this Chore</h4>
+
+		<label>Description:</label> {{description}} <br>
+		<label>Point Value:</label> {{point_value}} <br>
+		<label>Household:</label> {{household_name}} <br>
+
+		<br>
+		<form action="/completions/new" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+		  	<input type="hidden" name="chore_id" id="chore_id" value="{{id}}">
+		  	<button name="button" type="submit">Assign Chore</button>
+		</form>
+	</div>
+</script>
