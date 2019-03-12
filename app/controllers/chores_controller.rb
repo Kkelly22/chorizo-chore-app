@@ -3,7 +3,11 @@ class ChoresController < ApplicationController
 
 	def index
 		@chores = current_user.all_household_chores
-	end
+		respond_to do |format|
+      		format.html { render :index }
+      		format.json { render json: @chores }
+    	end
+    end
 
 	def new
 		@chore = Chore.new
@@ -23,6 +27,10 @@ class ChoresController < ApplicationController
 
 	def show
 		@chore = Chore.find_by(id: params[:id])
+		respond_to do |format|
+      		format.html { render :show }
+      		format.json { render json: @chore }
+    	end
 	end
 
 	def edit
