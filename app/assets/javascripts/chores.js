@@ -6,8 +6,15 @@ $(document).ready(function() {
 function Chore(attributes) {
 	this.description = attributes.description;
 	this.point_value = attributes.point_value;
-	this.household_id = attributes.household_id;
+	this.household_name = attributes.household_name;
 	this.id = attributes.id;
+}
+
+Chore.prototype.formatDescription = function() {
+	pointString = "<p>Point Value: " + this.point_value + ", "
+	homeString = "Belongs to Household: " + this.household_name + "</p>"
+	descriptionString = pointString + homeString
+	return descriptionString
 }
 
 function attachListeners () {
@@ -17,7 +24,7 @@ function attachListeners () {
 
    		$.get("/chores/" + id + ".json", function(data) {
    			var chore = new Chore(data);
-	   		var descriptionText = "<p>Point Value: " + chore.point_value + "</p>"
+   			descriptionText = chore.formatDescription()
    			$("#chore-" + id).html(descriptionText);
    		});
 	})
