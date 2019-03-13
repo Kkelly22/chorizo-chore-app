@@ -18,10 +18,8 @@ class ChoresController < ApplicationController
 		if @chore.household == nil
 			redirect_to new_chore_path
 			flash[:error] = "Please Create Household First"
-		elsif @chore && @chore.valid?
-			redirect_to chore_path(@chore)
 		else
-			render new_chore_path
+			render json: @chore, status: 201
 		end
 	end
 

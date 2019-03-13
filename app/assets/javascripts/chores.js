@@ -45,6 +45,20 @@ function attachChoreListeners () {
    		});
 	})
 
+
+
+   	$('form').submit(function(event) {
+    	event.preventDefault();
+      	var values = $(this).serialize();
+      	var posting = $.post('/chores', values);
+     	posting.done(function(data) {
+        	var chore = data;
+        	$("#choreDescription").text(chore["description"]);
+        	$("#chorePointValue").text(chore["point_value"]);
+       		$("#choreHousehold").text(chore["household_name"]);
+      	});
+    });
+
 }
 
 
