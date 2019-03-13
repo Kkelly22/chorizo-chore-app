@@ -13,12 +13,8 @@
 	</ul>
 
 	<br>
-	Chores: 
-	<ul>
-		<% @household.chores.each do |chore| %>
-			<li> <%= link_to chore.description, chore_path(chore) %> </li>
-		<% end %>
-	</ul>
+	<button class="js-chores" data-id="<%= @household.id %>">Show Chores</button> 
+	<div id="household-<%= @household.id%>-chores"></div>
 	
 	<br>
 	<% if !current_user.households.include?(@household) %>
