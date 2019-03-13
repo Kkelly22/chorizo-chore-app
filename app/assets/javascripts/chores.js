@@ -32,7 +32,7 @@ function attachChoreListeners () {
    			let chore = new Chore(data);
    			$("#chore-" + id).html(chore.formatChore());
    		});
-	})
+	});
 
 
 	$('#js-next').on('click', function (e) {
@@ -43,21 +43,20 @@ function attachChoreListeners () {
    			$("#chore-descrip").html(chore.formatFullChore());
    			$("#js-next").attr("data-id", nextId);
    		});
-	})
+	});
 
 
-
-   	$('form').submit(function(event) {
-    	event.preventDefault();
-      	var values = $(this).serialize();
-      	var posting = $.post('/chores', values);
-     	posting.done(function(data) {
-        	var chore = data;
-        	$("#choreDescription").text(chore["description"]);
-        	$("#chorePointValue").text(chore["point_value"]);
-       		$("#choreHousehold").text(chore["household_name"]);
-      	});
+  $('form').submit(function(event) {
+    event.preventDefault();
+    let values = $(this).serialize();
+    let posting = $.post('/chores', values);
+    posting.done(function(data) {
+        let chore = data;
+        $("#choreDescription").text(chore["description"]);
+        $("#chorePointValue").text(chore["point_value"]);
+       	$("#choreHousehold").text(chore["household_name"]);
     });
+  });
 
 }
 
