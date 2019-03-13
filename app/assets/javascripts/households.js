@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	attachListeners();   
+	attachHouseholdListeners();   
 });
 
 
@@ -10,10 +10,10 @@ function Household(attributes) {
 	this.id = attributes.id;
 }
 
-Household.prototype.formatDescription = function() {
+Household.prototype.formatHousehold = function() {
 }
 
-function attachListeners () {
+function attachHouseholdListeners () {
 	$('.js-chores').on('click', function (e) {
  		e.preventDefault();
  		var id = $(this).data("id");
@@ -21,7 +21,7 @@ function attachListeners () {
    		$.get("/households/" + id + ".json", function(data) {
    			var household = new Household(data);
    			for (var i = 0; i < household.chores.length; i++) {
-   				var nameString = "<p>Name: " + household.chores[i].name + ", "
+   				var nameString = "<p>Name: " + household.chores[i].description + ", "
   				var pointString = "<p>Point Value: " + household.chores[i].point_value + ", "
 				var homeString = "Belongs to Household: " + household.chores[i].household_name + "</p>"
 				var descriptionString = nameString + pointString + homeString + "</br>"
