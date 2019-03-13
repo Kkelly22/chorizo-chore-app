@@ -1,9 +1,14 @@
 <div class="display_info">
 	<h4>About this Chore</h4>
 
-	<label>Description:</label> <%= @chore.description %> <br>
-	<label>Point Value:</label> <%= @chore.point_value %> <br>
-	<label>Household:</label> <%= @chore.household.name %> <br>
+	<a id="js-next" data-id="<%= @chore.id %>" href="#">Next Chore</a> <br>
+
+	<div id="chore-descrip">	
+		<label>Description:</label> <%= @chore.description %> <br>
+		<label>Point Value:</label> <%= @chore.point_value %> <br>
+		<label>Household:</label> <%= @chore.household.name %> <br>
+	</div>
+
 
 	<br>
 	<%= form_tag new_completion_path, {:method => :get} do %>
