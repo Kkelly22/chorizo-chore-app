@@ -9,6 +9,11 @@ class HouseholdsController < ApplicationController
       		@households = Household.all
       		@household_index_header = "All Dwellings"
     	end
+
+    	respond_to do |format|
+      		format.html { render :index }
+      		format.json { render json: @households }
+    	end
 	end
 
 	def new
@@ -27,6 +32,10 @@ class HouseholdsController < ApplicationController
 
 	def show
 		@household = Household.find_by(id: params[:id])
+		respond_to do |format|
+      		format.html { render :show }
+      		format.json { render json: @household }
+    	end
 	end
 
 	def edit
