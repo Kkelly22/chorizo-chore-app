@@ -4,7 +4,7 @@
 	<% if @chores.size > 0 %>
 		<ul class="chore-list">
 			<% @chores.each do |chore| %>
-				<li> <%= chore.description %>
+				<li> <%= link_to chore.description, chore_path(chore) %>
 					<button class="js-more" data-id="<%= chore.id %>">More Info</button> 
 					<div id="chore-<%= chore.id %>"></div>
 				</li>
