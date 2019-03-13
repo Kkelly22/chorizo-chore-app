@@ -2,7 +2,11 @@
 	<h4> All Chores </h4>
 
 	<% if @chores.size > 0 %>
-		<% render "chore_li" %>
+		<ul class="chore-list">
+			<% @chores.each do |chore| %>
+				<li><%= link_to chore.description, chore_path(chore) %> (<%= chore.household.name %>, <%= chore.point_value %> Points) </li>
+			<% end %>
+		</ul>
 	<% else %>
 		<p>No Chores Exist.</p>
 	<% end %>
@@ -11,8 +15,3 @@
 <footer class="bg-dark">
 	<%= link_to "Add a Chore", new_chore_path %>
 </footer>
-
-
-<script id="chores-template" type="text/x-handlebars-template">
-	<li><a href="/chores/{{id}}">{{description}}</a> ({{household_name}}, {{point_value}} Points) </li>
-</script>
